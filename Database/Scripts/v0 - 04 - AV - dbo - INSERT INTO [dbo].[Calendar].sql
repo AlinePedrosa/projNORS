@@ -12,6 +12,7 @@ WHILE @DT_INITIAL <= @DT_FINAL BEGIN
         ,[Quarter]
         ,[Month]
         ,[MonthName]
+        ,[ANOMES]
         ,[Week]
         ,[Day]
         ,[DayOfWeek]
@@ -20,14 +21,23 @@ WHILE @DT_INITIAL <= @DT_FINAL BEGIN
     ) VALUES (
         @DT_INITIAL
         ,YEAR(@DT_INITIAL)
-        ,DATEPART(quarter, @DT_INITIAL)
+        ,DATEPART(QUARTER, @DT_INITIAL)
         ,MONTH(@DT_INITIAL)
-        ,DATENAME( month, @DT_INITIAL)
-        ,DATEPART(Week, @DT_INITIAL)
+        ,DATENAME(MONTH, @DT_INITIAL)
+        ,CONCAT(
+            YEAR(@DT_INITIAL)
+            ,RIGHT(
+                '00' + CAST(
+                    MONTH(@DT_INITIAL)  
+                    AS VARCHAR(2)
+                ), 2
+            )
+        )
+        ,DATEPART(WEEK, @DT_INITIAL)
         ,DAY(@DT_INITIAL)
         ,DATENAME(WEEKDAY, @DT_INITIAL)
         ,DATEPART(dayofyear, @DT_INITIAL)
-        ,DATEPART(Weekday, @DT_INITIAL)
+        ,DATEPART(WEEKDAY, @DT_INITIAL)
     )
 
     -- PRINT @DT_INITIAL

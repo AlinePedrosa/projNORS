@@ -1,6 +1,9 @@
 USE [Proj_NORS]
 GO
 
+IF OBJECT_ID('dbo.Calendar', 'U') IS NOT NULL
+    DROP TABLE dbo.Calendar;
+
 IF OBJECT_ID('dbo.Calendar', 'U') IS NULL
     CREATE TABLE [dbo].[Calendar] (
         [Date] DATE NOT NULL,
@@ -8,6 +11,7 @@ IF OBJECT_ID('dbo.Calendar', 'U') IS NULL
         [Quarter] INTEGER NOT NULL,
         [Month] INTEGER NOT NULL,
         [MonthName] VARCHAR(20) NOT NULL,
+        [ANOMES] VARCHAR(6) NOT NULL,
         [Week] INTEGER NOT NULL,
         [Day] INTEGER NOT NULL,
         [DayOfWeek] VARCHAR(10) NOT NULL,
