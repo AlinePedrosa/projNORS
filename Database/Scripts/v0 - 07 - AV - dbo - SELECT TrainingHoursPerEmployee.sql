@@ -2,7 +2,7 @@ SELECT
     AUX.Company
     ,AUX.Month
     ,AUX.Year
-    ,AUX.DateTraining
+    ,AUX.Date
     ,AUX.[Training hours per employee]
     ,AUX.[Training hours per employee F]
     ,AUX.[Training hours per employee T]
@@ -26,7 +26,7 @@ FROM (
         ,T.[Training hours per employee T+1] - T.[Training hours per employee] AS [Improvement +1]
         ,T.[Training hours per employee T+2] - T.[Training hours per employee] AS [Improvement +2]
         ,T.[Training hours per employee T+6] - T.[Training hours per employee] AS [Improvement +6]
-        ,T.DateTraining
+        ,T.Date
     FROM [Proj_NORS].[dbo].[TrainingHoursPerEmployee] AS T WITH (NOLOCK)
     WHERE 1=1
 ) AS AUX
