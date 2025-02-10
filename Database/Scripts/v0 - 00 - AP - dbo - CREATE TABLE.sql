@@ -31,10 +31,10 @@ IF OBJECT_ID('dbo.SalesViaDigitalChannel', 'U') IS NOT NULL
     
 SELECT * INTO [dbo].[SalesViaDigitalChannel] FROM [dbo].['3#1# Sales via digital channel$'];
 
-IF OBJECT_ID('dbo.LoyalCustomer', 'U') IS NOT NULL 
-    DROP TABLE [dbo].[LoyalCustomer]; 
+IF OBJECT_ID('dbo.LoyalCustomers', 'U') IS NOT NULL 
+    DROP TABLE [dbo].[LoyalCustomers]; 
     
-SELECT * INTO [dbo].[LoyalCustomer] FROM [dbo].['3#2# Loyal Customers$'];
+SELECT * INTO [dbo].[LoyalCustomers] FROM [dbo].['3#2# Loyal Customers$'];
 
 IF OBJECT_ID('dbo.TrainingHoursPerEmployee', 'U') IS NOT NULL 
     DROP TABLE [dbo].[TrainingHoursPerEmployee];
