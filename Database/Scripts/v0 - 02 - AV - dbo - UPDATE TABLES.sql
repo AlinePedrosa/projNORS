@@ -35,11 +35,11 @@ SET [Date] = CAST(CONCAT([Year], '-', [Month], '-01') AS DATE)
 -- [1] Average Service Lead Time
 UPDATE [dbo].[AverageServiceLeadTime]
 SET [Date] = CAST(CONCAT([Year], '-', [Month], '-01') AS DATE)
-    ,[Average Service Lead Time x Average Service Lead Time F %] = ([Average Service Lead Time] / [Average Service Lead Time F]) - 1
+    ,[Average Service Lead Time x Average Service Lead Time F %] = ([Average Service Lead Time] / [Average Service Lead Time F])
     ,[Average Service Lead Time F %] = (100 - [Average Service Lead Time F]) / 100
-    ,[Average Service Lead Time x Average Service Lead Time T %] = ([Average Service Lead Time] / [Average Service Lead Time T]) - 1
+    ,[Average Service Lead Time x Average Service Lead Time T %] = ([Average Service Lead Time] / [Average Service Lead Time T])
     ,[Average Service Lead Time T %] = ( 100 - [Average Service Lead Time T]) / 100
-    ,[Average Service Lead Time x Average Service Lead Time T+6 %] = ([Average Service Lead Time] / [Average Service Lead Time T+6]) - 1
+    ,[Average Service Lead Time x Average Service Lead Time T+6 %] = ([Average Service Lead Time] / [Average Service Lead Time T+6])
     ,[Average Service Lead Time T+6 %] = (100 - [Average Service Lead Time T+6]) / 100
 
 
