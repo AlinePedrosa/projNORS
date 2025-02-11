@@ -6,15 +6,15 @@ IF OBJECT_ID('dbo.Revenue', 'U') IS NOT NULL
 
 SELECT * INTO [dbo].[Revenue] FROM [dbo].['1#1# Revenue$']
 
-IF OBJECT_ID('dbo.OPEX_Turnover', 'U') IS NOT NULL 
-    DROP TABLE [dbo].[OPEX_Turnover];
+IF OBJECT_ID('dbo.OPEXTurnover', 'U') IS NOT NULL 
+    DROP TABLE [dbo].[OPEXTurnover];
 
-SELECT * INTO [dbo].[OPEX_Turnover] FROM dbo.['1#2# OPEX_Turnover$'];
+SELECT * INTO [dbo].[OPEXTurnover] FROM dbo.['1#2# OPEX_Turnover$'];
 
-IF OBJECT_ID('dbo.AvarageServiceLeadTime', 'U') IS NOT NULL 
-    DROP TABLE [dbo].[AvarageServiceLeadTime]; 
+IF OBJECT_ID('dbo.AverageServiceLeadTime', 'U') IS NOT NULL 
+    DROP TABLE [dbo].[AverageServiceLeadTime]; 
     
-SELECT * INTO [dbo].[AvarageServiceLeadTime] FROM [dbo].['2#1#Average Service Lead Time$'];
+SELECT * INTO [dbo].[AverageServiceLeadTime] FROM [dbo].['2#1#Average Service Lead Time$'];
 
 IF OBJECT_ID('dbo.AbsorptionRate', 'U') IS NOT NULL 
     DROP TABLE [dbo].[AbsorptionRate]; 

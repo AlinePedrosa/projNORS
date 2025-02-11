@@ -5,7 +5,7 @@ GO
 -- [1] Growth
 /**************************************************************************************************************************************************************************************************/
 -- [1] Revenue
-UPDATE [dbo].[Revenue] 
+UPDATE [dbo].[Revenue]
 SET [Date] = CAST(CONCAT([Year], '-', [Month], '-01') AS DATE)
     ,[Revenue T %] = (100 - [Revenue T]) / 100
     ,[Revenue x Revenue T %] = [Revenue] / [Revenue T]
@@ -17,12 +17,12 @@ SET [Date] = CAST(CONCAT([Year], '-', [Month], '-01') AS DATE)
 -- [2] OPEX Turnover
 UPDATE [dbo].[OPEXTurnover] 
 SET [Date] = CAST(CONCAT([Year], '-', [Month], '-01') AS DATE)
-    ,[OPEX/Turnover x OPEX/Turnover F %] = [OPEX/Turnover] / [OPEX/Turnover F]
-    ,[OPEX/Turnover F %] = (100 - [OPEX/Turnover F]) / 100
-    ,[OPEX/Turnover x OPEX/Turnover T %] = [OPEX/Turnover] / [OPEX/Turnover T]
-    ,[OPEX/Turnover T %] = (100 - [OPEX/Turnover T]) / 100
-    ,[OPEX/Turnover x OPEX/Turnover T+6 %] = [OPEX/Turnover] / [OPEX/Turnover T+6]
-    ,[OPEX/Turnover T+6 %] = (100 - [OPEX/Turnover T+6]) / 100
+    ,[OPEX/Turnover x OPEX/Turnover F %] = ABS(1 - ([OPEX/Turnover] / [OPEX/Turnover F]))
+    ,[OPEX/Turnover F %] = 1 - (100 - [OPEX/Turnover F]) / 100
+    ,[OPEX/Turnover x OPEX/Turnover T %] = ABS(1 - ([OPEX/Turnover] / [OPEX/Turnover T]))
+    ,[OPEX/Turnover T %] = 1 - (100 - [OPEX/Turnover T]) / 100
+    ,[OPEX/Turnover x OPEX/Turnover T+6 %] = ABS(1 - ([OPEX/Turnover] / [OPEX/Turnover T+6]))
+    ,[OPEX/Turnover T+6 %] = 1 - (100 - [OPEX/Turnover T+6]) / 100
 /**************************************************************************************************************************************************************************************************/
 
 
@@ -35,12 +35,12 @@ SET [Date] = CAST(CONCAT([Year], '-', [Month], '-01') AS DATE)
 -- [1] Average Service Lead Time
 UPDATE [dbo].[AverageServiceLeadTime]
 SET [Date] = CAST(CONCAT([Year], '-', [Month], '-01') AS DATE)
-    ,[Average Service Lead Time x Average Service Lead Time F %] = ([Average Service Lead Time] / [Average Service Lead Time F])
-    ,[Average Service Lead Time F %] = (100 - [Average Service Lead Time F]) / 100
-    ,[Average Service Lead Time x Average Service Lead Time T %] = ([Average Service Lead Time] / [Average Service Lead Time T])
-    ,[Average Service Lead Time T %] = ( 100 - [Average Service Lead Time T]) / 100
-    ,[Average Service Lead Time x Average Service Lead Time T+6 %] = ([Average Service Lead Time] / [Average Service Lead Time T+6])
-    ,[Average Service Lead Time T+6 %] = (100 - [Average Service Lead Time T+6]) / 100
+    ,[Average Service Lead Time x Average Service Lead Time F %] = ABS(1 - ([Average Service Lead Time] / [Average Service Lead Time F]))
+    ,[Average Service Lead Time F %] = 1 - ((100 - [Average Service Lead Time F]) / 100)
+    ,[Average Service Lead Time x Average Service Lead Time T %] = ABS(1 - ([Average Service Lead Time] / [Average Service Lead Time T]))
+    ,[Average Service Lead Time T %] = 1 - ((100 - [Average Service Lead Time T]) / 100)
+    ,[Average Service Lead Time x Average Service Lead Time T+6 %] = ABS(1 - ([Average Service Lead Time] / [Average Service Lead Time T+6]))
+    ,[Average Service Lead Time T+6 %] = 1 - ((100 - [Average Service Lead Time T+6]) / 100)
 
 
 -- [2] Absorption rate
@@ -126,12 +126,12 @@ SET Date = CAST(CONCAT(Year, '-', Month, '-01') AS DATE)
 -- [2] Technicians turnover [%]
 UPDATE [dbo].[TechniciansTurnover]
 SET  [Date] = CAST(CONCAT(Year, '-', Month, '-01') AS DATE)
-    ,[Technicians turnover x Technicians turnover F %] = [Technicians turnover] / [Technicians turnover F]
-    ,[Technicians turnover x Technicians turnover T %] = [Technicians turnover] / [Technicians turnover T]
-    ,[Technicians turnover x Technicians turnover T+6] = [Technicians turnover] / [Technicians turnover T+6]
-    ,[Technicians turnover F %] = (100 - [Technicians turnover F]) / 100
-    ,[Technicians turnover T %] = (100 - [Technicians turnover T]) / 100
-    ,[Technicians turnover T+6 %] = (100 - [Technicians turnover T+6]) / 100
+    ,[Technicians turnover x Technicians turnover F %] = 1 - ([Technicians turnover] / [Technicians turnover F])
+    ,[Technicians turnover x Technicians turnover T %] = 1 - ([Technicians turnover] / [Technicians turnover T])
+    ,[Technicians turnover x Technicians turnover T+6] = 1 - ([Technicians turnover] / [Technicians turnover T+6])
+    ,[Technicians turnover F %] = 1 - (100 - [Technicians turnover F]) / 100
+    ,[Technicians turnover T %] = 1 - (100 - [Technicians turnover T]) / 100
+    ,[Technicians turnover T+6 %] = 1 - (100 - [Technicians turnover T+6]) / 100
 /**************************************************************************************************************************************************************************************************/
 
 
@@ -154,8 +154,8 @@ SET Date = CAST(CONCAT(Year, '-', Month, '-01') AS DATE)
 -- [2] Percentage waste recovered over total waste produced [%]
 UPDATE [dbo].[PercentageWasteRecovered] 
 SET [Date] = CAST(CONCAT(Year, '-', Month, '-01') AS DATE)
-    ,[Percentage waste recovered x Percentage waste recovered F %] = 1 - ([Percentage waste recovered] / [Percentage waste recovered F])
-    ,[Percentage waste recovered x Percentage waste recovered T %] = 1 - ([Percentage waste recovered] / [Percentage waste recovered T])
+    ,[Percentage waste recovered x Percentage waste recovered F %] = ([Percentage waste recovered] / [Percentage waste recovered F])
+    ,[Percentage waste recovered x Percentage waste recovered T %] = ([Percentage waste recovered] / [Percentage waste recovered T])
     ,[Percentage waste recovered x Percentage waste recovered T+6 %] = [Percentage waste recovered] / [Percentage waste recovered T+6]
     ,[Percentage waste recovered F %] = (100 - [Percentage waste recovered F]) / 100
     ,[Percentage waste recovered T %] = (100 - [Percentage waste recovered T]) / 100
