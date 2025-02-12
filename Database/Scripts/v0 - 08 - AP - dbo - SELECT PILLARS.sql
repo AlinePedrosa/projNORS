@@ -1,10 +1,13 @@
+USE [Proj_NORS]
+GO
+
 SELECT
     1 AS [ID Pillar]
     ,'Growth' AS [Pillar]
     ,1 AS [ID OKR]
     ,'Revenue from complementary products and services [% Turnover]' AS [OKR]
     ,AVG([Revenue] / [Revenue T]) AS [Achievement] 
-FROM [dbo].[Revenue] (NOLOCK)
+FROM [dbo].[Revenue]
 
 UNION ALL
 SELECT 
@@ -13,7 +16,7 @@ SELECT
     ,2 AS [ID OKR]
     ,'OPEX/ Turnover [%]' AS [OKR]
     ,AVG([Opex/Turnover] / [Opex/Turnover T]) AS [Achievement] 
-FROM [dbo].[OPEXTurnover] (NOLOCK)
+FROM [dbo].[OPEXTurnover]
 
 UNION ALL
 SELECT
@@ -31,7 +34,7 @@ SELECT
     ,2 AS [ID OKR]
     ,'Absorption rate [%]' AS [KPI]
     ,AVG([Absorption Rate] / [Absorption Rate T]) AS [Achievement] 
-FROM [dbo].[AbsorptionRate] (NOLOCK)
+FROM [dbo].[AbsorptionRate]
 
 UNION ALL
 SELECT
@@ -40,7 +43,7 @@ SELECT
     ,3 AS [ID OKR]
     ,'NPS [Points]' AS [KPI]
     ,AVG([NPS] / [NPS T]) AS [Achievement] 
-FROM [dbo].[NPS] (NOLOCK)
+FROM [dbo].[NPS]
 
 UNION ALL
 SELECT
@@ -49,7 +52,7 @@ SELECT
     ,1 AS [ID OKR]
     ,'Sales via digital channels [%]' AS [KPI]
     ,AVG([Sales via digital channel] / [Sales via digital channel T]) AS [Achievement] 
-FROM [dbo].[SalesViaDigitalChannel] (NOLOCK)
+FROM [dbo].[SalesViaDigitalChannel]
 WHERE 1=1
 AND [Sales via digital channel T] > 0
 
@@ -60,7 +63,7 @@ SELECT
     ,2 AS [ID OKR]
     ,'Loyal customers [Growth %] ' AS [KPI]
     ,AVG([Loyal Customers] / [Loyal Customers T]) AS [Achievement] 
-FROM [dbo].[LoyalCustomers] (NOLOCK)
+FROM [dbo].[LoyalCustomers]
 WHERE 1=1
 
 UNION ALL
@@ -70,7 +73,7 @@ SELECT
     , 1 AS [ID OKR]
     ,'Training hours per employee [avg hour per employee]' AS [KPI]
     ,AVG([Training hours per employee] / [Training hours per employee T]) AS [Achievement]
-FROM [dbo].[TrainingHoursPerEmployee] (NOLOCK)
+FROM [dbo].[TrainingHoursPerEmployee]
 
 UNION ALL
 SELECT
@@ -79,7 +82,7 @@ SELECT
     ,2 AS [ID OKR]
     ,'Technicians turnover [%]' AS [KPI]
     ,AVG([Technicians turnover] / [Technicians turnover T]) AS [Achievement]
-FROM [dbo].[TechniciansTurnover] (NOLOCK)
+FROM [dbo].[TechniciansTurnover]
 
 UNION ALL
 SELECT
@@ -88,7 +91,7 @@ SELECT
     ,1 AS [ID OKR]
     ,'Renewable energy over total energy consumption [%]' AS [KPI]
     ,AVG([Renewable energy] / [Renewable energy T]) AS [Achievement]
-FROM [dbo].[RenewableEnergy] (NOLOCK)
+FROM [dbo].[RenewableEnergy]
 
 UNION ALL
 SELECT
@@ -97,7 +100,7 @@ SELECT
     ,2 AS [ID OKR]
     ,'Percentage waste recovered over total waste produced [%]' AS [KPI]
     ,AVG([Percentage waste recovered] / [Percentage waste recovered T]) AS [Achievement] 
-FROM [dbo].[PercentageWasteRecovered] (NOLOCK)
+FROM [dbo].[PercentageWasteRecovered]
 
 UNION ALL
 SELECT
@@ -106,7 +109,7 @@ SELECT
     ,3 AS [ID OKR]
     ,'Own Fleet Zero Emission Vehicle (% Total Fleet)' AS [KPI]
     ,AVG([Own fleet zero emission] / [Own fleet zero emission T]) AS [Achievement]
-FROM [dbo].[OwnFleetZeroEmission] (NOLOCK)
+FROM [dbo].[OwnFleetZeroEmission]
 
 UNION ALL
 SELECT
@@ -115,7 +118,7 @@ SELECT
     , 4 AS [ID OKR]
     ,'Circularity Projects (#)' AS [KPI]
     ,AVG([Circularity Projects] / [Circularity Projects T]) AS [Achievement]
-FROM [dbo].[CircularityProjects] (NOLOCK)
+FROM [dbo].[CircularityProjects]
 
 UNION ALL
 SELECT
@@ -124,4 +127,4 @@ SELECT
     ,5 AS [ID OKR]
     ,'Remanufactured Parts (% of Total Parts Turnover)' AS [KPI]
     ,AVG([Remanufactured Parts] / [Remanufactured Parts T]) AS [Achievement]
-FROM [dbo].[RemanufacturedParts] (NOLOCK)
+FROM [dbo].[RemanufacturedParts]
