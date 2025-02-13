@@ -18,11 +18,11 @@ SET [Date] = CAST(CONCAT([Year], '-', [Month], '-01') AS DATE)
 UPDATE [dbo].[OPEXTurnover] 
 SET [Date] = CAST(CONCAT([Year], '-', [Month], '-01') AS DATE)
     ,[OPEX/Turnover x OPEX/Turnover F %] = ABS(1 - ([OPEX/Turnover] / [OPEX/Turnover F]))
-    ,[OPEX/Turnover F %] = 1 - (100 - [OPEX/Turnover F]) / 100
+    ,[OPEX/Turnover F %] = 1 - ((100 - [OPEX/Turnover F]) / 100)
     ,[OPEX/Turnover x OPEX/Turnover T %] = ABS(1 - ([OPEX/Turnover] / [OPEX/Turnover T]))
-    ,[OPEX/Turnover T %] = 1 - (100 - [OPEX/Turnover T]) / 100
+    ,[OPEX/Turnover T %] = 1 - ((100 - [OPEX/Turnover T]) / 100)
     ,[OPEX/Turnover x OPEX/Turnover T+6 %] = ABS(1 - ([OPEX/Turnover] / [OPEX/Turnover T+6]))
-    ,[OPEX/Turnover T+6 %] = 1 - (100 - [OPEX/Turnover T+6]) / 100
+    ,[OPEX/Turnover T+6 %] = 1 - ((100 - [OPEX/Turnover T+6]) / 100)
 /**************************************************************************************************************************************************************************************************/
 
 
@@ -126,12 +126,12 @@ SET Date = CAST(CONCAT(Year, '-', Month, '-01') AS DATE)
 -- [2] Technicians turnover [%]
 UPDATE [dbo].[TechniciansTurnover]
 SET  [Date] = CAST(CONCAT(Year, '-', Month, '-01') AS DATE)
-    ,[Technicians turnover x Technicians turnover F %] = 1 - ([Technicians turnover] / [Technicians turnover F])
-    ,[Technicians turnover x Technicians turnover T %] = 1 - ([Technicians turnover] / [Technicians turnover T])
-    ,[Technicians turnover x Technicians turnover T+6] = 1 - ([Technicians turnover] / [Technicians turnover T+6])
-    ,[Technicians turnover F %] = 1 - (100 - [Technicians turnover F]) / 100
-    ,[Technicians turnover T %] = 1 - (100 - [Technicians turnover T]) / 100
-    ,[Technicians turnover T+6 %] = 1 - (100 - [Technicians turnover T+6]) / 100
+    ,[Technicians turnover x Technicians turnover F %] = ABS(1 - ([Technicians turnover] / [Technicians turnover F]))
+    ,[Technicians turnover x Technicians turnover T %] = ABS(1 - ([Technicians turnover] / [Technicians turnover T]))
+    ,[Technicians turnover x Technicians turnover T+6] = ABS(1 - ([Technicians turnover] / [Technicians turnover T+6]))
+    ,[Technicians turnover F %] = ABS(1 - (100 - [Technicians turnover F]) / 100)
+    ,[Technicians turnover T %] = ABS(1 - (100 - [Technicians turnover T]) / 100)
+    ,[Technicians turnover T+6 %] = ABS(1 - (100 - [Technicians turnover T+6]) / 100)
 /**************************************************************************************************************************************************************************************************/
 
 
