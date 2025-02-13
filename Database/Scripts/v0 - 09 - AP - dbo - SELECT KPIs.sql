@@ -1,10 +1,13 @@
 USE [Proj_NORS]
 GO
 
+TRUNCATE TABLE [dbo].[main]
+
+INSERT INTO [dbo].[main]
 SELECT
     MAIN.*
     ,[Dividend] / [Divisor] AS [Quotient]
-INTO [dbo].[main]
+-- INTO [dbo].[main]
 FROM (
     SELECT
         1 AS [ID Pillar]
